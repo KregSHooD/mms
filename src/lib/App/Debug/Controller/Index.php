@@ -13,6 +13,7 @@ use CK\Core\Controller;
 
 class Index extends Controller {
     public function acIndex() {
+        echo "text";
         $str = 'clake[+]';
 
         $reg = '/(.+?)\[(\+|-|!|>|<)\]/si';
