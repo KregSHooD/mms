@@ -20,6 +20,4 @@ use CK\Util\IO\File;
  */
 class Module extends \CK\Core\Module{
 
-    public function run() {
-    }
 }
