@@ -16,7 +16,7 @@ use CK\Database\DBA;
 class Index extends Controller {
     public function acIndex() {
         $data = Model::inst('classify')->find([
-            'AMD' => [
+            'AND' => [
                 'id[!]'=>'1',
                 'sort'=>'0'
             ],
