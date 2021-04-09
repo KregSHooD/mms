@@ -15,7 +15,7 @@ use CK\Database\DBA;
 
 class Index extends Controller {
     public function acIndex() {
-        $data = Model::inst('classify')->find(['id'=>'1']);
+        $data = Model::inst('classify')->find(['id[!]'=>'1']);
         var_dump($data);
         echo DBA::inst()->sql_str;
     }
