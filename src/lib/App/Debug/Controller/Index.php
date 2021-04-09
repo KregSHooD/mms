@@ -17,12 +17,12 @@ class Index extends Controller {
     public function acIndex() {
         $data = Model::inst('classify')->find([
             'AND' => [
-                'id[!]'=>'1',
-                'sort'=>'0'
+                'id[!]' => '1',
+                'sort'  => '0'
             ],
-            'OR'=>[
-                'id'=>'2',
-                'sort[>]'=>'0'
+            'OR'  => [
+                'id'      => '2',
+                'sort[>]' => '0'
             ]
         ]);
         var_dump($data);
