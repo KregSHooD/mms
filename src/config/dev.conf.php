@@ -54,10 +54,10 @@ return [
             //表前缀
             'db_prefix'=>'',
             'master' => [
-                'db_host'=>'weiwubao.mysql.rds.aliyuncs.com',
-                'db_name'=>'ticket_two',
-                'db_user'=>'ticket_db',
-                'db_pass'=>'kKfj38IjfkqP2M4fGie',
+                'db_host'=>'localhost',
+                'db_name'=>'qfp',
+                'db_user'=>'db_user',
+                'db_pass'=>'pOe93jfn7hU!7318fVghB',
                 //可选
                 'db_port'=>3306
             ],
