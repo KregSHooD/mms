@@ -10,21 +10,13 @@ namespace App\Debug\Controller;
 
 
 use CK\Core\Controller;
+use CK\Core\Model;
+use CK\Database\DBA;
 
 class Index extends Controller {
     public function acIndex() {
-        echo "text";
-        $str = 'clake[+]';
-
-        $reg = '/(.+?)\[(\+|-|!|>|<)\]/si';
-        $flag = preg_match($reg,$str,$match);
-        var_dump($flag);
-        var_dump($match);
-        $field = [
-            'column'=>'',
-            'icon'=>''
-        ];
-        $field['column'] = $match[0];
-        $field['icon'] = $match[1];
+        $data = Model::inst('classify')->find(['id'=>'1']);
+        var_dump($data);
+        echo DBA::inst()->sql_str;
     }
 }
