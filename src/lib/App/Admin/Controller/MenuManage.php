@@ -52,7 +52,6 @@ class MenuManage extends Controller
 //        ];
 
         $result = Menu::inst()->query($fields, null, null, null, $num, $page, function ($row) {
-            $row['created_date'] = date('Y-m-d H:i:s', $row['created_date']);
             $row['cipher_id'] = Cipher::inst()->encrypt($row['menu_id']);
             return $row;
         });
