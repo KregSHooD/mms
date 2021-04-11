@@ -12,11 +12,11 @@ namespace App\Debug\Controller;
 use CK\Core\Controller;
 use CK\Core\Model;
 use CK\Database\DBA;
+use CK\Util\Cipher;
 
 class Index extends Controller {
     public function acIndex() {
-        $result = Model::inst('t_account')->find(['acc_id'=>'1']);
-        var_dump($result);
+        echo Cipher::inst()->decrypt('Ji02Yc4j6PD-ubHj6lLL7w');
     }
 
     public function acUpdate() {
