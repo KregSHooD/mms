@@ -16,7 +16,7 @@ use CK\Util\Cipher;
 
 class Index extends Controller {
     public function acIndex() {
-        echo Cipher::inst()->decrypt('Ji02Yc4j6PD-ubHj6lLL7w');
+        echo Cipher::inst('mms.zcxf.com')->decrypt('Ji02Yc4j6PD-ubHj6lLL7w');
     }
 
     public function acUpdate() {
