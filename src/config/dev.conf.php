@@ -59,7 +59,8 @@ return [
                 'db_user'=>'db_user',
                 'db_pass'=>'pOe93jfn7hU!7318fVghB',
                 //可选
-                'db_port'=>3306
+                'db_port'=>3306,
+                'db_charset'=>'utf8mb4'
             ],
             'slave'=>[]
         ]
