@@ -73,8 +73,6 @@ class MenuManage extends Controller
         if (empty($data['menu_id'])) {
             unset($data['menu_id']);
             $data['created_date'] = CK_NOW;
-            $data['menu_parent'] = $data['menu_fa'];
-            unset($data['menu_fa']);
             $status = Menu::inst()->insert($data, false);
             self::updateGroup();
         } else {
@@ -82,8 +80,6 @@ class MenuManage extends Controller
             if (!is_numeric($data['menu_id'])) {
                 return false;
             }
-            $data['menu_parent'] = $data['menu_fa'];
-            unset($data['menu_fa']);
             $status = Menu::inst()->update($data, ['menu_id' => $data['menu_id']]);
         }
         //删除用户缓存权限
