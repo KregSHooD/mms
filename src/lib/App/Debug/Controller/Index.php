@@ -16,10 +16,10 @@ use CK\Util\Cipher;
 
 class Index extends Controller {
     public function acIndex() {
-        $cipher = Cipher::inst('mms.zcxf.com')->encrypt("12");
-        echo $cipher.'<br/>';
+//        $cipher = Cipher::inst('mms.zcxf.com')->encrypt("12");
+//        echo $cipher.'<br/>';
 
-        echo Cipher::inst('mms.zcxf.com')->decrypt($cipher);
+        echo Cipher::inst('mms.zcxf.com')->decrypt('ekzib-ubHwaT_n7FnURNiQ');
     }
 
     public function acUpdate() {
