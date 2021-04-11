@@ -15,7 +15,7 @@ use CK\Database\DBA;
 
 class Index extends Controller {
     public function acIndex() {
-        $result = Model::inst('t_account')->find(['id'=>'1']);
+        $result = Model::inst('t_account')->find(['acc_id'=>'1']);
         var_dump($result);
     }
 }
