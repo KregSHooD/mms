@@ -15,10 +15,7 @@ use CK\Database\DBA;
 
 class Index extends Controller {
     public function acIndex() {
-        $user = [
-            ''=>'',
-            ''=>'',
-            ''=>''
-        ];
+        $result = Model::inst('t_account')->find(['id'=>'1']);
+        var_dump($result);
     }
 }
