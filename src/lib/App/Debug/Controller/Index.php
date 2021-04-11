@@ -20,7 +20,7 @@ class Index extends Controller {
     }
 
     public function acUpdate() {
-        $flag = Model::inst('t_account')->update(['modified_date[+]'=>'1'],['acc_id'=>'1']);
+        $flag = Model::inst('t_account')->update(['modified_date'=>'1'],['acc_id'=>'1']);
         var_dump($flag);
     }
 }
