@@ -39,7 +39,7 @@ class MenuManage extends Controller
         $fields = [
             'menu_id' => '',
             'menu_parent' => '',
-            'menu_ors' => '',
+            'menu_sort' => '',
             'menu_name' => '',
             'menu_text' => '',
             'menu_link' => '',
