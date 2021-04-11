@@ -43,15 +43,15 @@ class MenuManage extends Controller
             'menu_name' => '',
             'menu_text' => '',
             'menu_link' => '',
-            'menu_text parent_text' => 'b',
+            'menu_parent_text' => '',
             'created_date' => ''
         ];
 
-        $joins = [
-            ['t_sys_menu b.menu_id', 't_sys_menu.menu_parent', 'LEFT']
-        ];
+//        $joins = [
+//            ['t_sys_menu b.menu_id', 't_sys_menu.menu_parent', 'LEFT']
+//        ];
 
-        $result = Menu::inst()->query($fields, null, $joins, null, $num, $page, function ($row) {
+        $result = Menu::inst()->query($fields, null, null, null, $num, $page, function ($row) {
             $row['created_date'] = date('Y-m-d H:i:s', $row['created_date']);
             $row['cipher_id'] = Cipher::inst()->encrypt($row['menu_id']);
             return $row;
