@@ -55,7 +55,7 @@ return [
             'db_prefix'=>'',
             'master' => [
                 'db_host'=>'localhost',
-                'db_name'=>'qfp',
+                'db_name'=>'zc_cms',
                 'db_user'=>'db_user',
                 'db_pass'=>'pOe93jfn7hU!7318fVghB',
                 //可选
