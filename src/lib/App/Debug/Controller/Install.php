@@ -20,7 +20,7 @@ class Install extends Controller {
             'grp_name'=>'管理员',
             'grp_eng_name'=>'admin',
             'grp_pur'=>'',
-            'create_date'=>CK_NOW,
+            'created_date'=>CK_NOW,
             'modified_date'=>CK_NOW
         ];
 
@@ -35,7 +35,7 @@ class Install extends Controller {
             'acc_head_img'=>'',
             'acc_email'=>'zcxf@zcxf.com',
             'acc_status'=>'1',
-            'create_date'=>CK_NOW,
+            'created_date'=>CK_NOW,
             'modified_date'=>CK_NOW
         ];
 
