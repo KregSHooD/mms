@@ -65,7 +65,7 @@ class AccountManage extends Controller{
      * @return array
      */
     public function save($data) {
-        if ($data['upload_file']) {
+        if (isset($data['upload_file']) && !empty($data['upload_file'])) {
             $data['acc_head_img'] = Upload::inst()->update(APP_PATH.substr($data['upload_file'],1));
         }
         unset($data['upload_file']);
