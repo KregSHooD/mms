@@ -157,7 +157,6 @@ class MenuManage extends Controller
             return false;
         }
         $info = Menu::inst()->getMenuById($menu_id);
-        $info['created_date'] = date('Y-m-d H:i:s', $info['created_date']);
         return $info;
     }
 
