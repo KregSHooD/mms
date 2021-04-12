@@ -175,16 +175,16 @@ class GroupManage extends Controller {
             $top_menu = [];
 
             foreach ($result['data'] as $v) {
-                if (in_array($v['id'], $pur_list)) {
+                if (in_array($v['menu_id'], $pur_list)) {
                     $sub_menu = Menu::inst()->query(
                         $child_field,
-                        ['menu_parent' => $v['id']],
+                        ['menu_parent' => $v['menu_id']],
                         null,
                         ['menu_sort', 'ASC'],
                         100, 1);
                     $tmp = [];
                     foreach ($sub_menu['data'] as $sub) {
-                        if (in_array($sub['id'], $pur_list)) {
+                        if (in_array($sub['menu_id'], $pur_list)) {
                             $tmp[] = $sub;
                         }
                     }
