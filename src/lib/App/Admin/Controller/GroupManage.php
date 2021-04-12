@@ -113,7 +113,7 @@ class GroupManage extends Controller {
      * 修改分组信息
      * @param $id
      * @res true
-     * @return array
+     * @return array|bool
      */
     public function getGroup($id) {
         $grp_id = Cipher::inst()->decrypt($id);
@@ -121,7 +121,6 @@ class GroupManage extends Controller {
             return false;
         }
         $info = Group::inst()->getGroupBuId($grp_id);
-        $info['created_date'] = date('Y-m-d H:i:s', $info['created_date']);
         return $info;
     }
 
@@ -138,7 +137,7 @@ class GroupManage extends Controller {
             return false;
         }
         foreach ($top_menu as &$v) {
-            $sub_menu = Menu::inst()->query(['menu_text' => '', 'menu_id' => ''], ['menu_parent' => $v['menu_id']], null, ['menu_ors', 'DESC'], 100, 1);
+            $sub_menu = Menu::inst()->query(['menu_text' => '', 'menu_id' => ''], ['menu_parent' => $v['menu_id']], null, ['menu_sort', 'DESC'], 100, 1);
             $v['sub_menu'] = $sub_menu['data'];
         }
         return $top_menu;
