@@ -78,7 +78,7 @@ class AccountManage extends Controller{
 
         if (empty($data['acc_id'])) {
             unset($data['acc_id']);
-            $data['create_date'] = CK_NOW;
+            $data['created_date'] = CK_NOW;
             $data['modified_date'] = CK_NOW;
             $check_name = User::inst()->find(['acc_username' => $data['acc_username']]);
             if(!empty($check_name)){
