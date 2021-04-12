@@ -107,8 +107,6 @@ class AccountManage extends Controller{
      */
     public function getUser($id) {
         $info = User::inst()->find(['acc_id'=>$id]);
-        $info['create_date'] = date('Y-m-d H:i:s',$info['create_date']);
-        $info['modified_date'] = date('Y-m-d H:i:s',$info['modified_date']);
         return $info;
     }
 
