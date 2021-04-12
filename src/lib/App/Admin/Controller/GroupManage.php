@@ -166,7 +166,7 @@ class GroupManage extends Controller {
                 'menu_link link' => ''
             ];
 
-            $result = Menu::inst()->query($parent_field, ['menu_parent' => 0], null, null, 100, 1);
+            $result = Menu::inst()->query($parent_field, ['menu_parent' => 0], null, ['menu_sort', 'ASC'], 100, 1);
 
             if (empty($result['data'])) {
                 return false;
@@ -180,7 +180,7 @@ class GroupManage extends Controller {
                         $child_field,
                         ['menu_parent' => $v['id']],
                         null,
-                        ['menu_ors', 'ASC'],
+                        ['menu_sort', 'ASC'],
                         100, 1);
                     $tmp = [];
                     foreach ($sub_menu['data'] as $sub) {
