@@ -156,14 +156,14 @@ class GroupManage extends Controller {
         } else {
             $pur_list = $user['grp_pur'];
             $parent_field = [
-                'menu_text text' => '',
-                'menu_id id' => ''
+                'menu_text' => '',
+                'menu_id' => ''
             ];
 
             $child_field = [
-                'menu_text text' => '',
-                'menu_id id' => '',
-                'menu_link link' => ''
+                'menu_text' => '',
+                'menu_id' => '',
+                'menu_link' => ''
             ];
 
             $result = Menu::inst()->query($parent_field, ['menu_parent' => 0], null, ['menu_sort', 'ASC'], 100, 1);
@@ -188,7 +188,7 @@ class GroupManage extends Controller {
                             $tmp[] = $sub;
                         }
                     }
-                    $v['children'] = $tmp;
+                    $v['sub_menus'] = $tmp;
                     $top_menu[] = $v;
                 }
             }
