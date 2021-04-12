@@ -48,15 +48,8 @@ class AccountManage extends Controller{
 
         foreach ($query as $result) {
             if (!empty($result['value'])) {
-                if ($result['type'] == '%') {
-                    if (strpos($result['value'], "%") === false) {
-                        $result['value'] = "%{$result['value']}%";
-                    }
-                    $symbol = 'LIKE';
-                } else {
-                    $symbol = '=';
-                }
-                $where[$result['name']] = "AND $symbol '{$result['value']}'";
+                $column = $result['name']."[{$result['type']}]";
+                $where[$column] = $result['value'];
             }
         }
 
