@@ -40,8 +40,7 @@ class AccountManage extends Controller{
             'acc_head_img'=>'',
             'acc_name'=>'',
             'acc_email'=>'',
-            'name mch_name'=>'t_merchants',
-            'create_date'=>'',
+            'created_date'=>'',
             'modified_date'=>''
         ];
 
@@ -61,15 +60,7 @@ class AccountManage extends Controller{
             }
         }
 
-        $joins  = [
-            ['t_merchants.id','t_account.mch_id','LEFT']
-        ];
-
-        $result = User::inst()->query($fields,$where,$joins,null,$num,$page,function($row){
-            $row['create_date'] = date('Y-m-d H:i:s',$row['create_date']);
-            $row['modified_date'] = date('Y-m-d H:i:s',$row['modified_date']);
-            return $row;
-        });
+        $result = User::inst()->query($fields,$where,null,null,$num,$page);
         return $result;
     }
 
