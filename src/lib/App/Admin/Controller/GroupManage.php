@@ -21,7 +21,7 @@ use CK\Core\Controller;
  * 管理端分组管理
  * Class GroupManage
  * @res true
- * @package App\Res\Controller
+ * @package App\Res\Controller`
  */
 class GroupManage extends Controller {
 
@@ -40,12 +40,10 @@ class GroupManage extends Controller {
             'grp_name' => '',
             'grp_eng_name' => '',
             'grp_pur' => '',
-            'create_date' => '',
+            'created_date' => '',
             'modified_date' => ''
         ];
         $result = Group::inst()->query($fields, null, null, ['grp_id', 'DESC'], $num, $page, function ($row) {
-            $row['create_date'] = date('Y-m-d H:i:s', $row['create_date']);
-            $row['modified_date'] = date('Y-m-d H:i:s', $row['modified_date']);
             $row['cipher_id'] = Cipher::inst()->encrypt($row['grp_id']);
             return $row;
         });
@@ -57,7 +55,7 @@ class GroupManage extends Controller {
      * @param $data
      * @res true
      *
-     * @return bool
+     * @return bool|array
      */
     public function save($data) {
         if (empty($data['grp_id'])) {
@@ -66,7 +64,7 @@ class GroupManage extends Controller {
             if (!empty($check_name)) {
                 return false;
             }
-            $data['create_date'] = CK_NOW;
+            $data['created_date'] = CK_NOW;
             $data['modified_date'] = CK_NOW;
             $status = Group::inst()->insert($data, false);
         } else {
@@ -93,7 +91,7 @@ class GroupManage extends Controller {
      * @param $grp_id
      * @res true
      *
-     * @return bool
+     * @return bool|array
      */
     public function delGroup($grp_id) {
         if (empty($grp_id)) {
@@ -123,7 +121,7 @@ class GroupManage extends Controller {
             return false;
         }
         $info = Group::inst()->getGroupBuId($grp_id);
-        $info['create_date'] = date('Y-m-d H:i:s', $info['create_date']);
+        $info['created_date'] = date('Y-m-d H:i:s', $info['created_date']);
         return $info;
     }
 
@@ -131,7 +129,7 @@ class GroupManage extends Controller {
      * 查询所有分组
      * @res true
      *
-     * @return array
+     * @return array|bool
      */
     public function getAllPur() {
         $result = Menu::inst()->query(['menu_text' => '', 'menu_id' => ''], ['menu_parent' => 0], null, null, 100, 1);
