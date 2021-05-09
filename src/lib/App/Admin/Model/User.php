@@ -46,22 +46,6 @@ class User extends Model{
         return $result;
     }
 
-//    public function getUserByWx($wx_id) {
-//        $this->_table->clear();
-//        $result = $this->_table
-//            ->select([
-//                '*'=>'',
-//                'grp_pur'=>'t_usr_group',
-//                'grp_name'=>'t_usr_group',
-//                'grp_eng_name'=>'t_usr_group'
-//            ])
-//            ->join('t_usr_group','grp_id','t_usr_user','grp_id')
-//            ->where(['wx_id'=>$wx_id])
-//            ->execute()->
-//            get_result_one();
-//        return $result;
-//    }
-
     /**
      * 查询用户名和密码
      * @param $username

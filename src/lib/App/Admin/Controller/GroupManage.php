@@ -72,7 +72,7 @@ class GroupManage extends Controller {
             if (!is_numeric($data['grp_id'])) {
                 return false;
             }
-            $check_name = Group::inst()->find(['grp_name' => $data['grp_name'], 'grp_id' => '!= ' . $data['grp_id']]);
+            $check_name = Group::inst()->find(['grp_name' => $data['grp_name'], 'grp_id[!]' => $data['grp_id']]);
             if (!empty($check_name)) {
                 return false;
             }
