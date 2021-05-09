@@ -42,7 +42,7 @@ return [
         //默认动作
         'def_action'=>'Index',
         //允许执行模块
-        'allowed_modules'=>['Site','Admin','Debug','Res','ResWap','Wap','Pay','Task'],
+        'allowed_modules'=>['Site','Admin','Debug','Res','ResWap','Wap','Pay','Task','Cms'],
         //URL地址分区配置模板
         'url_partition'=>'{module}/{controller}/{action}'
     ],
