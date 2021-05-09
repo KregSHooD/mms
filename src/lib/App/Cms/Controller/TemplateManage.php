@@ -20,6 +20,15 @@ use CK\Core\Controller;
  */
 class TemplateManage extends Controller {
 
+    /**
+     * 查询模板列表
+     * @param $query
+     * @param $page
+     * @param $num
+     *
+     * @res true
+     * @return array
+     */
     public function query($query, $page, $num) {
         $fields = [
             'tmp_id'=>'',
@@ -42,6 +51,13 @@ class TemplateManage extends Controller {
         return $result;
     }
 
+    /**
+     * 保存模板数据
+     * @param $data
+     *
+     * @res true
+     * @return bool
+     */
     public function save($data) {
         if (empty($data['tmp_id'])) {
             unset($data['tmp_id']);
