@@ -10,7 +10,6 @@ namespace App\Cms;
 
 
 use CK\Core\Router;
-use CK\Util\Cipher;
 use CK\Util\IO\File;
 
 /**
@@ -72,9 +71,9 @@ class Module extends \CK\Core\Module{
             }
             $result = call_user_func_array([$class,$func], $params);
             if ($result === false) {
-                ajax_result(false, 'error',['data'=>Cipher::inst('mms_data')->encrypt($result)]);
+                ajax_result(false, 'error',['data'=>$result]);
             } else {
-                ajax_result(true, 'ok',['data'=>Cipher::inst('mms_data')->encrypt($result)]);
+                ajax_result(true, 'ok',['data'=>$result]);
             }
         } else {
 
