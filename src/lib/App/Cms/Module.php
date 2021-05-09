@@ -25,7 +25,7 @@ class Module extends \CK\Core\Module{
     public function run() {
         $this->namespace = CK_TOP_NS.'\\Cms\\Controller';
         if (CK_DEBUG) {
-            header('Access-Control-Allow-Origin:http://localhosœt:3000');
+            header('Access-Control-Allow-Origin:http://localhost:3000');
             header('Access-Control-Allow-Methods:GET,POST,OPTIONS');
             header('Access-Control-Allow-Headers:Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With');
             header('Access-Control-Allow-Credentials:true');
