@@ -15,7 +15,7 @@ use CK\Core\Controller;
 /**
  * 模板管理类
  * Class TemplateManage
- *
+ * @res true
  * @package App\Admin\Controller
  */
 class TemplateManage extends Controller {
