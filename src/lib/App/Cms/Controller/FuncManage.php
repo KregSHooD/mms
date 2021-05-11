@@ -75,7 +75,7 @@ class FuncManage extends Controller {
         $files = Directory::getDir($path);
         $list = [];
         foreach ($files as $item) {
-            $files[] = [
+            $list[] = [
                 'label'=>basename($item),
                 'value'=>basename($item)
             ];
