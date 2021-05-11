@@ -49,7 +49,7 @@ class TemplateManage extends Controller {
         }
 
         $result = Template::inst()->query($fields,$where,null,null,$num,$page,function($row){
-            $row['cipher_id'] = Cipher::inst()->encrypt($row['usr_id']);
+            $row['cipher_id'] = Cipher::inst()->encrypt($row['tmp_id']);
             return $row;
         });
         return $result;
