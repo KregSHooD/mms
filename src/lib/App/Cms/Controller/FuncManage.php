@@ -72,7 +72,14 @@ class FuncManage extends Controller {
      */
     public function getPublishClassList() {
         $path = APP_LIB_PATH.'App/Cms/Publish/';
-        $list = Directory::getDir($path);
+        $files = Directory::getDir($path);
+        $list = [];
+        foreach ($files as $item) {
+            $files[] = [
+                'label'=>basename($item),
+                'value'=>basename($item)
+            ];
+        }
         return $list;
     }
 }
