@@ -8,8 +8,7 @@
 
 namespace App\Cms\Controller;
 
-
-use App\Cms\Model\Template;
+use App\Cms\Model\TemplateFunc;
 use CK\Core\Controller;
 use CK\Util\Cipher;
 use CK\Util\IO\Directory;
@@ -58,7 +57,7 @@ class FuncManage extends Controller {
             }
         }
 
-        $result = Template::inst()->query($fields,$where,null,null,$num,$page,function($row){
+        $result = TemplateFunc::inst()->query($fields,$where,null,null,$num,$page,function($row){
             $row['cipher_id'] = Cipher::inst()->encrypt($row['fun_id']);
             return $row;
         });
