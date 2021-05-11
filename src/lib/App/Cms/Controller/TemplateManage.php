@@ -74,4 +74,21 @@ class TemplateManage extends Controller {
             return $flag;
         }
     }
+
+    /**
+     * 获取模板信息
+     * @param $cipher_id
+     *
+     * @res true
+     * @return array|bool
+     */
+    public function info($cipher_id) {
+        $tmp_id = Cipher::inst()->decrypt($cipher_id);
+        if (!empty($tmp_id)) {
+            $template = Template::inst()->find(['tmp_id'=>$tmp_id]);
+            return $template;
+        } else {
+            return false;
+        }
+    }
 }
