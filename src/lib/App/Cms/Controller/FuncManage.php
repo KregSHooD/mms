@@ -81,8 +81,8 @@ class FuncManage extends Controller {
         $list = [];
         foreach ($files as $item) {
             $list[] = [
-                'label'=>basename($item),
-                'value'=>basename($item)
+                'label'=>basename($item,'.php'),
+                'value'=>basename($item,'.php')
             ];
         }
         return $list;
