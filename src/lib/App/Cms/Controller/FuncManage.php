@@ -48,6 +48,7 @@ class FuncManage extends Controller {
             'tmp_id'=>'',
             'fun_name'=>'',
             'fun_class'=>'',
+            'fun_function'=>'',
             'fun_var'=>'',
             'fun_params'=>'',
             'created_date'=>''
