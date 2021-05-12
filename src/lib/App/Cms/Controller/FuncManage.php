@@ -12,6 +12,7 @@ use App\Cms\Model\TemplateFunc;
 use CK\Core\Controller;
 use CK\Util\Cipher;
 use CK\Util\IO\Directory;
+use Monolog\Formatter\ChromePHPFormatter;
 
 /**
  * 模板方法操作类
@@ -158,6 +159,23 @@ class FuncManage extends Controller {
             $data['modified_date'] = CK_NOW;
             $flag = TemplateFunc::inst()->update($data,['tmp_id'=>$data['tmp_id']]);
             return $flag;
+        }
+    }
+
+    /**
+     * 获取调用函数信息
+     * @param $cipher_id
+     *
+     * @res true
+     * @return array|bool
+     */
+    public function info($cipher_id) {
+        $fun_id = Cipher::inst()->decrypt($cipher_id);
+        if (!empty($fun_id)) {
+            $data = TemplateFunc::inst()->find(['fun_id'=>$fun_id]);
+            return $data;
+        } else {
+            return false;
         }
     }
 }
