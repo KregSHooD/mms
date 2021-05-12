@@ -21,6 +21,11 @@ use CK\Util\IO\Directory;
  * @package App\Cms\Controller
  */
 class FuncManage extends Controller {
+    private $_ns;
+
+    public function __construct() {
+        $this->_ns = CK_TOP_NS."\\Cms\\Publish\\";
+    }
 
     /**
      * 查询模板方法集
@@ -80,6 +85,50 @@ class FuncManage extends Controller {
                 'value'=>basename($item)
             ];
         }
+        return $list;
+    }
+
+    /**
+     * 得到类库的公共方法集
+     * @param $class_name
+     *
+     * @res true
+     * @return array
+     */
+    public function getPublishFuncs($class_name) {
+        $ref = new \ReflectionClass($this->_ns.$class_name);
+        $func_list = $ref->getMethods(\ReflectionMethod::IS_PUBLIC);
+        $list = [];
+        foreach ($func_list as $func) {
+            $list[] = [
+                'label'=>$func->getName(),
+                'value'=>$func->getName()
+            ];
+        }
+
+        return $list;
+    }
+
+    /**
+     * 得到方法的所有参数集
+     * @param $class_name
+     * @param $func_name
+     *
+     * @res true
+     * @return array
+     */
+    public function getFuncParams($class_name,$func_name) {
+        $ref = new \ReflectionClass($this->_ns.$class_name);
+        $func = $ref->getMethod($func_name);
+        $params = $func->getParameters();
+        $list = [];
+        foreach ($params as $param) {
+            $list[] = [
+                'name'=>$param->getName(),
+                'def'=>$param->getDefaultValue()
+            ];
+        }
+
         return $list;
     }
 }
