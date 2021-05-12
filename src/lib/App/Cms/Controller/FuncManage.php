@@ -125,7 +125,8 @@ class FuncManage extends Controller {
         foreach ($params as $param) {
             $list[] = [
                 'name'=>$param->getName(),
-                'def'=>$param->isDefaultValueAvailable()?$param->getDefaultValue():''
+                'val'=>$param->isDefaultValueAvailable()?$param->getDefaultValue():'',
+                'type'=>''
             ];
         }
 
