@@ -132,4 +132,31 @@ class FuncManage extends Controller {
 
         return $list;
     }
+
+    /**
+     * 保存模板调用函数方法
+     * @param $data
+     * @param $tmp_id
+     *
+     * @res true
+     * @return bool
+     */
+    public function save($data,$tmp_id) {
+        $tmp_id = Cipher::inst()->decrypt($tmp_id);
+        if (empty($tmp_id)) {
+            return false;
+        }
+        if (empty($data['fun_id'])) {
+            unset($data['fun_id']);
+            $data['tmp_id'] = $tmp_id;
+            $data['created_date'] = CK_NOW;
+            $data['modified_date'] = CK_NOW;
+            $flag = TemplateFunc::inst()->insert($data,false);
+            return $flag;
+        } else {
+            $data['modified_date'] = CK_NOW;
+            $flag = TemplateFunc::inst()->update($data,['tmp_id'=>$data['tmp_id']]);
+            return $flag;
+        }
+    }
 }
