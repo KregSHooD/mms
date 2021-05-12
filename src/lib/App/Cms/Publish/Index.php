@@ -10,5 +10,7 @@ namespace App\Cms\Publish;
 
 
 class Index {
+    public function test($test) {
 
+    }
 }
