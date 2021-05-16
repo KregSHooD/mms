@@ -50,7 +50,7 @@ class ArticleCategoryManage extends Controller {
         }
 
         $result = ArticleCategory::inst()->query($fields,$where,null,null,$num,$page,function($row){
-            $row['cipher_id'] = Cipher::inst()->encrypt($row['tmp_id']);
+            $row['cipher_id'] = Cipher::inst()->encrypt($row['ctg_id']);
             return $row;
         });
         return $result;
