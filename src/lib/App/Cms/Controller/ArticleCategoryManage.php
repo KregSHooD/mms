@@ -36,8 +36,10 @@ class ArticleCategoryManage extends Controller {
             'ctg_id'=>'',
             'ctg_name'=>'',
             'ctg_publish_path'=>'',
-            'ctg_tmp_id'=>'',
-            'created_date'=>''
+            'tmp_id'=>'',
+            'tmp_name'=>'',
+            'created_date'=>'',
+            'modified_date'=>''
         ];
 
         $where = [];
