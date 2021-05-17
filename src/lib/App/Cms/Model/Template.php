@@ -10,7 +10,6 @@ namespace App\Cms\Model;
 
 
 use CK\Core\Model;
-use CK\Database\DBA;
 
 /**
  * 模板模块类
@@ -21,9 +20,5 @@ use CK\Database\DBA;
 class Template extends Model {
     public function __construct() {
         parent::__construct('t_template');
-    }
-
-    public function getResult($where=[]){
-        return $this->_table->where($where)->get_result();
     }
 }
