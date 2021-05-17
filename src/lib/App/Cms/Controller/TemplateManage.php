@@ -64,8 +64,7 @@ class TemplateManage extends Controller {
      */
     public function getAll(){
         $result = Template::inst()->getResult();
-
-        echo '测试接口';
+        return $result;
     }
 
     /**
