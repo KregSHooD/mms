@@ -9,9 +9,7 @@
 namespace App\Cms\Publish;
 
 
-use CK\Core\Component;
-
-class Index extends Component {
+class Index {
     public function test($test) {
 
     }
