@@ -11,6 +11,7 @@ namespace App\Cms\Controller;
 
 use App\Cms\Model\Template;
 use CK\Core\Controller;
+use CK\Database\DBA;
 use CK\Util\Cipher;
 
 /**
@@ -63,7 +64,8 @@ class TemplateManage extends Controller {
      */
     public function getAll(){
         $result = Template::inst()->getResult();
-        return $result;
+
+        echo DBA::inst()->sql_str;
     }
 
     /**
