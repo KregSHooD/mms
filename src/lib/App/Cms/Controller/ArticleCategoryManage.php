@@ -121,7 +121,9 @@ class ArticleCategoryManage extends Controller
      * @res true
      * @return string
      */
-    public function getPinyin($string){
+    public function getPinyin($string)
+    {
+
         return Pinyin::inst()->getAll($string);
     }
 
