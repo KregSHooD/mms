@@ -11,6 +11,7 @@ namespace App\Cms\Controller;
 
 use App\Cms\Model\Template;
 use CK\Core\Controller;
+use CK\Database\DBA;
 use CK\Util\Cipher;
 
 /**
@@ -50,6 +51,23 @@ class TemplateManage extends Controller {
 
         $result = Template::inst()->query($fields,$where,null,null,$num,$page,function($row){
             $row['cipher_id'] = Cipher::inst()->encrypt($row['tmp_id']);
+            return $row;
+        });
+        return $result;
+    }
+
+    /**
+     * 获取所有模板数据
+     *
+     * @res true
+     * @return array
+     */
+    public function getAll(){
+        $fields = [
+            'tmp_id value'=>'',
+            'tmp_name label'=>'',
+        ];
+        $result = Template::inst()->query($fields,[],null,null,30,1,function($row){
             return $row;
         });
         return $result;
