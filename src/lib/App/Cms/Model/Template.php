@@ -10,6 +10,7 @@ namespace App\Cms\Model;
 
 
 use CK\Core\Model;
+use CK\Database\DBA;
 
 /**
  * 模板模块类
@@ -23,6 +24,7 @@ class Template extends Model {
     }
 
     public function getResult($where=[]){
-        return $this->_table->where($where)->get_result();
+        $this->_table->where($where)->get_result();
+        return DBA::inst()->sql_str;
     }
 }
