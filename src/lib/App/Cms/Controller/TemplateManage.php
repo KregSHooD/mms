@@ -65,7 +65,7 @@ class TemplateManage extends Controller {
     public function getAll(){
         $result = Template::inst()->getResult();
 
-        echo DBA::inst()->sql_str;
+        echo '测试接口';
     }
 
     /**
