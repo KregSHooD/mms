@@ -116,15 +116,14 @@ class ArticleCategoryManage extends Controller
 
     /**
      * 获取汉字拼音
-     * @param $string
+     * @param $keyword
      *
      * @res true
      * @return string
      */
-    public function getPinyin($string)
+    public function getPinyin($keyword)
     {
-
-        return Pinyin::inst()->getAll($string);
+        return Pinyin::inst()->getAll($keyword);
     }
 
     /**
