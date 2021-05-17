@@ -94,4 +94,20 @@ class ArticleCategoryManage extends Controller {
         }
     }
 
+    /**
+     * 删除分类
+     * @param $cipher_id
+     *
+     * @res true
+     * @return bool
+     */
+    public function delete($cipher_id){
+        $ctg_id = Cipher::inst()->decrypt($cipher_id);
+        if(!empty($ctg_id)){
+            $rel = ArticleCategory::inst()->delete(['ctg_id'=>$ctg_id]);
+            return $rel;
+        }
+        return false;
+    }
+
 }
