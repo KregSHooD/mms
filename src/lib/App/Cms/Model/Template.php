@@ -24,6 +24,6 @@ class Template extends Model {
     }
 
     public function getResult($where=[]){
-        return $this->_table->get_result();
+        return $this->_table->where($where)->get_result();
     }
 }

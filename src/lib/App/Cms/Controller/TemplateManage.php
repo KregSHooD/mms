@@ -63,7 +63,14 @@ class TemplateManage extends Controller {
      * @return array
      */
     public function getAll(){
-        $result = Template::inst()->getResult();
+        $fields = [
+            'tmp_id'=>'',
+            'tmp_name'=>'',
+        ];
+        $result = Template::inst()->query($fields,[],null,null,30,1,function ($row){
+            $row['cipher_id'] = Cipher::inst()->encrypt($row['tmp_id']);
+            return $row;
+        });
         return $result;
     }
 
