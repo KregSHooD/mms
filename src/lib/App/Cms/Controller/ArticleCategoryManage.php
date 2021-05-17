@@ -57,4 +57,41 @@ class ArticleCategoryManage extends Controller {
         });
         return $result;
     }
+
+    /**
+     * 获取分类详情
+     * @param $cipher_id
+     *
+     * @res true
+     * @return array|bool
+     */
+    public function info($cipher_id){
+        $ctg_id = Cipher::inst()->decrypt($cipher_id);
+        if(!empty($ctg_id)){
+            $category = ArticleCategory::inst()->find(['ctg_id'=>$ctg_id]);
+            return $category;
+        }
+        return false;
+    }
+
+    /**
+     * 添加和修改分类
+     * @param $data
+     *
+     * @res true
+     * @return bool
+     */
+    public function save($data){
+        if(empty($data['ctg_id'])){
+            unset($data['ctg_id']);
+            $data['create_time'] = CK_NOW;
+            $rel = ArticleCategory::inst()->insert($data);
+            return $rel;
+        }else{
+            $data['modified_date'] = CK_NOW;
+            $rel = ArticleCategory::inst()->update($data,['ctg_id'=>$data['ctg_id']]);
+            return $rel;
+        }
+    }
+
 }

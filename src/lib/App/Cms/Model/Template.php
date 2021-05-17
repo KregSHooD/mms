@@ -21,4 +21,8 @@ class Template extends Model {
     public function __construct() {
         parent::__construct('t_template');
     }
+
+    public function getResult($where=[]){
+        return $this->_table->where($where)->get_result();
+    }
 }

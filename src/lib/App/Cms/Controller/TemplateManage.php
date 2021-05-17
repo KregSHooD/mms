@@ -56,6 +56,17 @@ class TemplateManage extends Controller {
     }
 
     /**
+     * 获取所有模板数据
+     *
+     * @res true
+     * @return array
+     */
+    public function getAll(){
+        $result = Template::inst()->getResult();
+        return $result;
+    }
+
+    /**
      * 保存模板数据
      * @param $data
      *
