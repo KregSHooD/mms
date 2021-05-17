@@ -21,6 +21,15 @@ use CK\Util\Cipher;
  */
 class ArticleManage extends Controller {
 
+	/**
+	 * 分页获取文章数据
+	 * @param $query
+	 * @param $page
+	 * @param $num
+	 * @res true
+	 *
+	 * @return array
+	 */
 	public function query($query, $page, $num) {
 		$fields = [
 			'art_id'=>'',
