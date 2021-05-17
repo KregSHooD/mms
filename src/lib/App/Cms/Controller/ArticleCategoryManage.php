@@ -84,7 +84,7 @@ class ArticleCategoryManage extends Controller {
     public function save($data){
         if(empty($data['ctg_id'])){
             unset($data['ctg_id']);
-            $data['create_date'] = CK_NOW;
+            $data['created_date'] = CK_NOW;
             $rel = ArticleCategory::inst()->insert($data);
             return $rel;
         }else{
