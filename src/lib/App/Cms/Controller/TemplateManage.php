@@ -63,7 +63,7 @@ class TemplateManage extends Controller {
      */
     public function getAll(){
         $result = Template::inst()->getResult();
-        return $result;
+        return '查询失败';
     }
 
     /**
