@@ -10,6 +10,7 @@ namespace App\Cms\Controller;
 
 
 use App\Cms\Model\ArticleCategory;
+use App\Cms\Model\Template;
 use CK\Core\Controller;
 use CK\Util\Cipher;
 
@@ -82,6 +83,10 @@ class ArticleCategoryManage extends Controller {
      * @return bool
      */
     public function save($data){
+        $template = Template::inst()->find(['tmp_id'=>$data['tmp_id']]);
+        if($template){
+            $data['tmp_name'] = $template['tmp_name'];
+        }
         if(empty($data['ctg_id'])){
             unset($data['ctg_id']);
             $data['created_date'] = CK_NOW;
