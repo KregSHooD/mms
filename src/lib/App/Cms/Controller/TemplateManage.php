@@ -64,12 +64,10 @@ class TemplateManage extends Controller {
      */
     public function getAll(){
         $fields = [
-            'tmp_id'=>'',
-            'tmp_name'=>'',
+            'tmp_id value'=>'',
+            'tmp_name label'=>'',
         ];
         $result = Template::inst()->query($fields,[],null,null,30,1,function($row){
-            $row['value'] = $row['tmp_id'];
-            $row['label'] = $row['tmp_name'];
             return $row;
         });
         return $result;
