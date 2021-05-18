@@ -191,7 +191,7 @@ class LinkManage extends \CK\Core\Controller
      * @res true
      * @return bool
      */
-    public function delete($cipher_id)
+    public function deleteCategory($cipher_id)
     {
         $ctg_id = Cipher::inst()->decrypt($cipher_id);
         if (!empty($ctg_id)) {
