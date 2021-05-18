@@ -86,6 +86,7 @@ class ArticleManage extends Controller {
 			foreach ($img_src[2] as $src) {
 				$upload_url = Upload::inst()->update(APP_PATH . substr($src, 1));
 				$data['art_content'] = str_replace($src, $upload_url, $data['art_content']);
+				$data['art_md_content'] = str_replace($src, $upload_url, $data['art_md_content']);
 			}
 		}
 
