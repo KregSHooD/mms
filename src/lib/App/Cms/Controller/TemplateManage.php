@@ -43,14 +43,13 @@ class TemplateManage extends Controller {
         $where = [];
 
         foreach ($query as $result) {
-            print_r($result);die;
+            var_dump($result);die;
             if (!empty($result['value'])) {
                 $column = $result['name']."[{$result['type']}]";
                 $where[$column] = $result['value'];
             }
         }
 
-        print_r($query);
         print_r($where);die;
         $result = Template::inst()->query($fields,$where,null,null,$num,$page,function($row){
             $row['cipher_id'] = Cipher::inst()->encrypt($row['tmp_id']);
