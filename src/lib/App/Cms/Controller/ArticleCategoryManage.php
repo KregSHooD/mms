@@ -39,6 +39,8 @@ class ArticleCategoryManage extends Controller
         $fields = [
             'ctg_id' => '',
             'ctg_name' => '',
+            'ctg_parent_id' => '',
+            'ctg_parent_name' => '',
             'ctg_publish_path' => '',
             'tmp_id' => '',
             'tmp_name' => '',
