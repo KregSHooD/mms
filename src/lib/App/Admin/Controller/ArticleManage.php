@@ -96,6 +96,10 @@ class ArticleManage extends Controller {
 			$data['art_modified_date'] = CK_NOW;
 			$flag = Article::inst()->insert($data, false);
 		} else {
+			$data['art_id'] = Cipher::inst()->decrypt($data['art_id']);
+			if (!is_numeric($data['art_id'])) {
+				return false;
+			}
 			$data['art_modified_date'] = CK_NOW;
 			$flag = Article::inst()->update($data, ['art_id' => $data['art_id']]);
 			return $flag;
