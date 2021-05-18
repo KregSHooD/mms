@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Cms\Model;
 /**
  * 友情链接模型
  * User: liberty.lai
