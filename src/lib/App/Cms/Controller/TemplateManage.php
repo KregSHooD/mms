@@ -48,6 +48,7 @@ class TemplateManage extends Controller {
                 $where[$column] = $result['value'];
             }
         }
+
         $result = Template::inst()->query($fields,$where,null,null,$num,$page,function($row){
             $row['cipher_id'] = Cipher::inst()->encrypt($row['tmp_id']);
             return $row;

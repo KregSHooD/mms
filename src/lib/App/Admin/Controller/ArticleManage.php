@@ -12,6 +12,7 @@ namespace App\Admin\Controller;
 use App\Admin\Model\Article;
 use CK\Core\Controller;
 use CK\Util\Cipher;
+use Common\Component\Upload;
 
 /**
  * 管理端文章管理
@@ -65,5 +66,17 @@ class ArticleManage extends Controller {
 			return $row;
 		});
 		return $result;
+	}
+
+	/**
+	 * 上传图片
+	 * @param $base
+	 * @res true
+	 *
+	 * @return bool|string
+	 */
+	public function uploadImg($base) {
+		$file_path = Upload::inst()->updateBase64($base);
+		return $file_path;
 	}
 }
