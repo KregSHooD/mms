@@ -23,8 +23,7 @@ use CK\Util\Pinyin;
  * @res true
  * @package App\Cms\Controller
  */
-class ArticleCategoryManage extends Controller
-{
+class ArticleCategoryManage extends Controller {
 
     /**
      * 查询文章分类
@@ -35,27 +34,16 @@ class ArticleCategoryManage extends Controller
      * @res true
      * @return array
      */
-    public function query($query, $num, $page)
-    {
-        $fields = [
-            'ctg_id' => '',
-            'ctg_name' => '',
-            'ctg_parent_id' => '',
-            'ctg_parent_name' => '',
-            'ctg_publish_path' => '',
-            'tmp_id' => '',
-            'tmp_name' => '',
-            'created_date' => '',
-            'modified_date' => ''
-        ];
+    public function query($query, $num, $page) {
+        $fields = ['ctg_id' => '', 'ctg_name' => '', 'ctg_parent_id' => '', 'ctg_parent_name' => '', 'ctg_publish_path' => '', 'tmp_id' => '', 'tmp_name' => '', 'created_date' => '', 'modified_date' => ''];
 
         $where = [];
 
         foreach ($query as $result) {
             if (!empty($result['value'])) {
-                if(empty($result['type'])){
+                if (empty($result['type'])) {
                     $column = $result['name'];
-                }else{
+                } else {
                     $column = $result['name'] . "[{$result['type']}]";
                 }
                 $where[$column] = $result['value'];
@@ -76,8 +64,7 @@ class ArticleCategoryManage extends Controller
      * @res true
      * @return array|bool
      */
-    public function info($cipher_id)
-    {
+    public function info($cipher_id) {
         $ctg_id = Cipher::inst()->decrypt($cipher_id);
         if (!empty($ctg_id)) {
             $category = ArticleCategory::inst()->find(['ctg_id' => $ctg_id]);
@@ -94,14 +81,8 @@ class ArticleCategoryManage extends Controller
      * @res true
      * @return array|bool
      */
-    public function getCategoryChild($ctg_id = '', $ctg_name = '')
-    {
-        $fields = [
-            'ctg_id' => '',
-            'ctg_name' => '',
-            'ctg_parent_id' => '',
-            'ctg_parent_name' => ''
-        ];
+    public function getCategoryChild($ctg_id = '', $ctg_name = '') {
+        $fields = ['ctg_id' => '', 'ctg_name' => '', 'ctg_parent_id' => '', 'ctg_parent_name' => ''];
         if (!empty($ctg_id)) {
             $where['ctg_parent_id'] = $ctg_id;
         } else {
@@ -128,8 +109,7 @@ class ArticleCategoryManage extends Controller
      * @res true
      * @return string
      */
-    public function getPinyin($keyword)
-    {
+    public function getPinyin($keyword) {
         return Pinyin::inst()->getAll($keyword);
     }
 
@@ -140,8 +120,7 @@ class ArticleCategoryManage extends Controller
      * @res true
      * @return bool
      */
-    public function save($data)
-    {
+    public function save($data) {
         $template = Template::inst()->find(['tmp_id' => $data['tmp_id']]);
         if ($template) {
             $data['tmp_name'] = $template['tmp_name'];
@@ -165,8 +144,7 @@ class ArticleCategoryManage extends Controller
      * @res true
      * @return bool
      */
-    public function delete($cipher_id)
-    {
+    public function delete($cipher_id) {
         $ctg_id = Cipher::inst()->decrypt($cipher_id);
         if (!empty($ctg_id)) {
             $rel = ArticleCategory::inst()->delete(['ctg_id' => $ctg_id]);
@@ -183,13 +161,8 @@ class ArticleCategoryManage extends Controller
      * @res true
      * @return array
      */
-    public function getTags($num,$page){
-        $fields = [
-            'tag_id' => '',
-            'tag_name' => '',
-            'tag_num' => '',
-            'tag_created_date' => ''
-        ];
+    public function getTags($num, $page) {
+        $fields = ['tag_id' => '', 'tag_name' => '', 'tag_num' => '', 'tag_created_date' => ''];
 
         $where = [];
 

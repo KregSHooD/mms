@@ -1,4 +1,6 @@
 <?php
+namespace App\Cms\Model;
+use CK\Core\Model;
 
 /**
  * 友情链接分类
@@ -6,8 +8,7 @@
  * Date: 2017/2/22
  * Time: 17:45
  */
-class LinkCategory extends \CK\Core\Model
-{
+class LinkCategory extends Model  {
     public function __construct()
     {
         parent::__construct('t_link_category');

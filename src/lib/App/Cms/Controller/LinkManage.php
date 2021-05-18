@@ -1,5 +1,6 @@
 <?php
 namespace App\Cms\Controller;
+
 /**
  * 友情链接管理
  * User: liberty.lai
@@ -14,8 +15,7 @@ use CK\Util\Cipher;
  *
  * Class LinkManage
  */
-class LinkManage extends \CK\Core\Controller
-{
+class LinkManage extends \CK\Core\Controller {
     /**
      * 查询友情链接列表
      * @param $query
@@ -25,21 +25,8 @@ class LinkManage extends \CK\Core\Controller
      * @res true
      * @return array
      */
-    public function queryLink($query, $num, $page)
-    {
-        $fields = [
-            'link_id' => '',
-            'ctg_id' => '',
-            'ctg_name' => '',
-            'link_name' => '',
-            'link_addr' => '',
-            'link_type' => '',
-            'link_img' => '',
-            'link_img_width' => '',
-            'link_img_height' => '',
-            'create_date' => '',
-            'modified_date' => ''
-        ];
+    public function queryLink($query, $num, $page) {
+        $fields = ['link_id' => '', 'ctg_id' => '', 'ctg_name' => '', 'link_name' => '', 'link_addr' => '', 'link_type' => '', 'link_img' => '', 'link_img_width' => '', 'link_img_height' => '', 'create_date' => '', 'modified_date' => ''];
         $where = [];
         foreach ($query as $result) {
             if (!empty($result['value'])) {
@@ -67,14 +54,8 @@ class LinkManage extends \CK\Core\Controller
      * @res true
      * @return array
      */
-    public function queryCategory($query, $num, $page)
-    {
-        $fields = [
-            'ctg_id' => '',
-            'ctg_name' => '',
-            'create_date' => '',
-            'modified_date' => ''
-        ];
+    public function queryCategory($query, $num, $page) {
+        $fields = ['ctg_id' => '', 'ctg_name' => '', 'create_date' => '', 'modified_date' => ''];
         $where = [];
         foreach ($query as $result) {
             if (!empty($result['value'])) {
@@ -100,8 +81,7 @@ class LinkManage extends \CK\Core\Controller
      * @res true
      * @return array|bool
      */
-    public function linkInfo($cipher_id)
-    {
+    public function linkInfo($cipher_id) {
         $link_id = Cipher::inst()->decrypt($cipher_id);
         if (!empty($link_id)) {
             $link = Link::inst()->find(['link_id' => $link_id]);
@@ -117,8 +97,7 @@ class LinkManage extends \CK\Core\Controller
      * @res true
      * @return array|bool
      */
-    public function categoryInfo($cipher_id)
-    {
+    public function categoryInfo($cipher_id) {
         $link_id = Cipher::inst()->decrypt($cipher_id);
         if (!empty($link_id)) {
             $link = LinkCategory::inst()->find(['link_id' => $link_id]);
@@ -134,8 +113,7 @@ class LinkManage extends \CK\Core\Controller
      * @res true
      * @return bool
      */
-    public function saveLink($data)
-    {
+    public function saveLink($data) {
         if (empty($data['link_id'])) {
             unset($data['link_id']);
             $data['created_date'] = CK_NOW;
@@ -155,8 +133,7 @@ class LinkManage extends \CK\Core\Controller
      * @res true
      * @return bool
      */
-    public function saveCategory($data)
-    {
+    public function saveCategory($data) {
         if (empty($data['ctg_id'])) {
             unset($data['ctg_id']);
             $data['created_date'] = CK_NOW;
@@ -176,8 +153,7 @@ class LinkManage extends \CK\Core\Controller
      * @res true
      * @return bool
      */
-    public function deleteLink($cipher_id)
-    {
+    public function deleteLink($cipher_id) {
         $link_id = Cipher::inst()->decrypt($cipher_id);
         if (!empty($link_id)) {
             $rel = Link::inst()->delete(['link_id' => $link_id]);
@@ -185,6 +161,7 @@ class LinkManage extends \CK\Core\Controller
         }
         return false;
     }
+
     /**
      * 删除分类
      * @param $cipher_id
@@ -192,8 +169,7 @@ class LinkManage extends \CK\Core\Controller
      * @res true
      * @return bool
      */
-    public function deleteCategory($cipher_id)
-    {
+    public function deleteCategory($cipher_id) {
         $ctg_id = Cipher::inst()->decrypt($cipher_id);
         if (!empty($ctg_id)) {
             $rel = LinkCategory::inst()->delete(['ctg_id' => $ctg_id]);
@@ -213,8 +189,6 @@ class LinkManage extends \CK\Core\Controller
         $file_path = Upload::inst()->updateBase64($base);
         return $file_path;
     }
-
-
 
 
 }
