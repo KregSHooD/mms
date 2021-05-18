@@ -194,7 +194,7 @@ class ArticleCategoryManage extends Controller
         $where = [];
 
         $result = Tag::inst()->query($fields, $where, null, null, $num, $page, function ($row) {
-            $row['cipher_id'] = Cipher::inst()->encrypt($row['ctg_id']);
+            $row['cipher_id'] = Cipher::inst()->encrypt($row['tag_id']);
             return $row;
         });
         return $result;
