@@ -201,6 +201,18 @@ class LinkManage extends \CK\Core\Controller
         return false;
     }
 
+    /**
+     * 上传图片
+     * @param $base
+     *
+     * @res true
+     * @return bool|string
+     */
+    public function uploadImg($base) {
+        $file_path = Upload::inst()->updateBase64($base);
+        return $file_path;
+    }
+
 
 
 
