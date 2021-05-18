@@ -10,6 +10,7 @@ namespace App\Cms\Controller;
 
 
 use App\Cms\Model\ArticleCategory;
+use App\Cms\Model\Tag;
 use App\Cms\Model\Template;
 use CK\Core\Controller;
 use CK\Util\Cipher;
@@ -174,4 +175,28 @@ class ArticleCategoryManage extends Controller
         return false;
     }
 
+    /**
+     *标签查询
+     * @param $num
+     * @param $page
+     *
+     * @res true
+     * @return array
+     */
+    public function getTags($num,$page){
+        $fields = [
+            'tag_id' => '',
+            'tag_name' => '',
+            'tag_num' => '',
+            'tag_created_date' => ''
+        ];
+
+        $where = [];
+
+        $result = Tag::inst()->query($fields, $where, null, null, $num, $page, function ($row) {
+            $row['cipher_id'] = Cipher::inst()->encrypt($row['tag_id']);
+            return $row;
+        });
+        return $result;
+    }
 }
