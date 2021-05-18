@@ -18,7 +18,7 @@ use CK\Util\Cipher;
  *
  * Class LinkManage
  */
-class LinkManage extends Controller  {
+class LinkManage extends Controller {
     /**
      * 查询友情链接列表
      * @param $query
@@ -29,7 +29,19 @@ class LinkManage extends Controller  {
      * @return array
      */
     public function queryLink($query, $num, $page) {
-        $fields = ['link_id' => '', 'ctg_id' => '', 'ctg_name' => '', 'link_name' => '', 'link_addr' => '', 'link_type' => '', 'link_img' => '', 'link_img_width' => '', 'link_img_height' => '', 'create_date' => '', 'modified_date' => ''];
+        $fields = [
+            'link_id' => '',
+            'ctg_id' => '',
+            'ctg_name' => '',
+            'link_name' => '',
+            'link_addr' => '',
+            'link_type' => '',
+            'link_img' => '',
+            'link_img_width' => '',
+            'link_img_height' => '',
+            'created_date' => '',
+            'modified_date' => ''
+        ];
         $where = [];
         foreach ($query as $result) {
             if (!empty($result['value'])) {
@@ -58,7 +70,12 @@ class LinkManage extends Controller  {
      * @return array
      */
     public function queryCategory($query, $num, $page) {
-        $fields = ['ctg_id' => '', 'ctg_name' => '', 'create_date' => '', 'modified_date' => ''];
+        $fields = [
+            'ctg_id' => '',
+            'ctg_name' => '',
+            'created_date' => '',
+            'modified_date' => ''
+        ];
         $where = [];
         foreach ($query as $result) {
             if (!empty($result['value'])) {
