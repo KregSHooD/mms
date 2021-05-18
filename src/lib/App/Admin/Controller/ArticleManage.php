@@ -70,6 +70,8 @@ class ArticleManage extends Controller {
 
 	/**
 	 * 保存修改文章
+	 * @res true
+	 *
 	 * @param $data
 	 */
 	public function save($data){
