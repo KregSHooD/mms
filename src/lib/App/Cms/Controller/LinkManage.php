@@ -8,6 +8,9 @@ namespace App\Cms\Controller;
  * Time: 17:42
  */
 
+use App\Cms\Model\Link;
+use App\Cms\Model\LinkCategory;
+use CK\Core\Controller;
 use CK\Util\Cipher;
 
 /**
@@ -15,7 +18,7 @@ use CK\Util\Cipher;
  *
  * Class LinkManage
  */
-class LinkManage extends \CK\Core\Controller {
+class LinkManage extends Controller  {
     /**
      * 查询友情链接列表
      * @param $query
