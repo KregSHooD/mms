@@ -33,17 +33,17 @@ class ArticleManage extends Controller {
 	 */
 	public function query($query, $page, $num) {
 		$fields = [
-			'art_id'=>'',
-			'art_title'=>'',
-			'art_type'=>'',
-			'ctg_name'=>'',
-			'art_created_date'=>'',
+			'art_id' => '',
+			'art_title' => '',
+			'art_type' => '',
+			'ctg_name' => '',
+			'art_created_date' => '',
 		];
 
 		$where = [];
 		foreach ($query as $result) {
 			if (!empty($result['value'])) {
-				$column = $result['name']."[{$result['type']}]";
+				$column = $result['name'] . "[{$result['type']}]";
 				$where[$column] = $result['value'];
 			}
 		}
@@ -74,7 +74,7 @@ class ArticleManage extends Controller {
 	 *
 	 * @param $data
 	 */
-	public function save($data){
+	public function save($data) {
 		$flag = false;
 		if (!empty($data['upload_file'])) {
 			$data['art_img'] = Upload::inst()->update(APP_PATH . substr($data['upload_file'], 1));
@@ -94,7 +94,24 @@ class ArticleManage extends Controller {
 			$data['art_created_date'] = CK_NOW;
 			$data['art_modified_date'] = CK_NOW;
 			$flag = Article::inst()->insert($data, false);
-		} else {}
+		} else {
+		}
+	}
+
+	/**
+	 * 获取一条文章详细信息
+	 * @param $cipher_id
+	 * @res true
+	 *
+	 * @return array|bool
+	 */
+	public function getOneArticle($cipher_id) {
+		$art_id = Cipher::inst()->decrypt($cipher_id);
+		if (!is_numeric($art_id)) {
+			return false;
+		}
+		$info = Article::inst()->getArtById($art_id);
+		return $info;
 	}
 
 	/**

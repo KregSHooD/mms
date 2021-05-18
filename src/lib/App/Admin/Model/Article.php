@@ -17,4 +17,20 @@ class Article extends Model{
         parent::__construct('t_article');
     }
 
+
+	/**
+	 * 通过文章id获取一条文章详细数据
+	 * @param $art_id
+	 * @return array
+	 */
+	public function getArtById($art_id)
+	{
+		$this->_table->clear();
+		$result = $this->_table
+			->where(['dep_id' => $art_id])
+			->execute()->
+			get_result_one();
+		return $result;
+	}
+
 }
