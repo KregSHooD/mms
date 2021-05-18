@@ -27,7 +27,7 @@ class Article extends Model{
 	{
 		$this->_table->clear();
 		$result = $this->_table
-			->where(['dep_id' => $art_id])
+			->where(['art_id' => $art_id])
 			->execute()->
 			get_result_one();
 		return $result;
