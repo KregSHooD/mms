@@ -69,6 +69,33 @@ class ArticleManage extends Controller {
 	}
 
 	/**
+	 * 保存修改文章
+	 * @param $data
+	 */
+	public function save($data){
+		$flag = false;
+		if (!empty($data['upload_file'])) {
+			$data['art_img'] = Upload::inst()->update(APP_PATH . substr($data['upload_file'], 1));
+		}
+		$cont_str = $data['art_content'];
+		preg_match_all("/src=('|\")(\/asset(.*?))('|\").*?(\/>|>)/", $cont_str, $img_src);
+		if (!empty($img_src[2])) {
+			foreach ($img_src[2] as $src) {
+				$upload_url = Upload::inst()->update(APP_PATH . substr($src, 1));
+				$data['art_content'] = str_replace($src, $upload_url, $data['art_content']);
+			}
+		}
+
+		unset($data['upload_file']);
+		if (empty($data['art_id'])) {
+			unset($data['art_id']);
+			$data['art_created_date'] = CK_NOW;
+			$data['art_modified_date'] = CK_NOW;
+			$flag = Article::inst()->insert($data, false);
+		} else {}
+	}
+
+	/**
 	 * 上传图片
 	 * @param $base
 	 * @res true
