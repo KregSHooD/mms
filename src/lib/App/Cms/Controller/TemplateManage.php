@@ -43,7 +43,6 @@ class TemplateManage extends Controller {
         $where = [];
 
         foreach ($query as $result) {
-            var_dump($result);die;
             if (!empty($result['value'])) {
                 $column = $result['name']."[{$result['type']}]";
                 $where[$column] = $result['value'];
