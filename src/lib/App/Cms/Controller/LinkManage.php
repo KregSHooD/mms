@@ -11,6 +11,7 @@ use CK\Util\Cipher;
 
 /**
  * @res true
+ *
  * Class LinkManage
  */
 class LinkManage extends \CK\Core\Controller
