@@ -73,6 +73,7 @@ class ArticleManage extends Controller {
 	 * @res true
 	 *
 	 * @param $data
+	 * @return bool
 	 */
 	public function save($data) {
 		$flag = false;
@@ -95,6 +96,9 @@ class ArticleManage extends Controller {
 			$data['art_modified_date'] = CK_NOW;
 			$flag = Article::inst()->insert($data, false);
 		} else {
+			$data['art_modified_date'] = CK_NOW;
+			$flag = Article::inst()->update($data, ['art_id' => $data['art_id']]);
+			return $flag;
 		}
 	}
 
