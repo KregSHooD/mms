@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Cms\Controller;
 /**
  * 友情链接管理
  * User: liberty.lai
