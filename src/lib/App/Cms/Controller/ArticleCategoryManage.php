@@ -136,8 +136,10 @@ class ArticleCategoryManage extends Controller {
             ]);
             //判断该分类下面是否有子分类，如果有则不能删除
             $category = ArticleCategory::inst()->find(['ctg_parent_id' => $ctg_id]);
-            if ($article || $category) {
+            if ($article) {
                 return ['error' => 40001];
+            }elseif ($category){
+                return ['error' => 40002];
             }
             $rel = ArticleCategory::inst()->delete(['ctg_id' => $ctg_id]);
             return $rel;
