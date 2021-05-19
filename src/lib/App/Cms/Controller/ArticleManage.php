@@ -48,7 +48,7 @@ class ArticleManage extends Controller {
 			}
 		}
 
-		$result = Article::inst()->query($fields, $where, null, null, $num, $page, function ($row) {
+		$result = Article::inst()->query($fields, $where, null, ['art_id', 'DESC'], $num, $page, function ($row) {
 			$row['cipher_id'] = Cipher::inst()->encrypt($row['art_id']);
 			switch ($row['art_type']) {
 				case 1:
@@ -121,6 +121,21 @@ class ArticleManage extends Controller {
 		}
 		$info = Article::inst()->getArtById($art_id);
 		return $info;
+	}
+
+	/**
+	 * 逻辑删除一篇文章
+	 * @res true
+	 *
+	 * @param $id
+	 * @return bool
+	 */
+	public function delArticle($id) {
+		if (empty($id)) {
+			return false;
+		}
+		$res = Article::inst()->update(['is_del' => 1], ['art_id' => $id]);
+		return $res;
 	}
 
 	/**
