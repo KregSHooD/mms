@@ -124,6 +124,21 @@ class ArticleManage extends Controller {
 	}
 
 	/**
+	 * 逻辑删除一篇文章
+	 * @res true
+	 *
+	 * @param $id
+	 * @return bool
+	 */
+	public function delArticle($id) {
+		if (empty($id)) {
+			return false;
+		}
+		$res = Article::inst()->update(['is_del' => 1], ['art_id' => $id]);
+		return $res;
+	}
+
+	/**
 	 * 上传图片
 	 * @param $base
 	 * @res true
