@@ -54,7 +54,7 @@ return [
             //表前缀
             'db_prefix'=>'',
             'master' => [
-                'db_host'=>'localhost',
+                'db_host'=>'168.168.1.10',
                 'db_name'=>'zc_cms',
                 'db_user'=>'db_user',
                 'db_pass'=>'pOe93jfn7hU!7318fVghB',
@@ -63,23 +63,7 @@ return [
                 'db_charset'=>'utf8mb4'
             ],
             'slave'=>[]
-        ],
-        'center' => [
-            //要连接的数据库类型,DBA::DBA_MYSQL|DBA::DBA_SQLITE|DBA::DBA_MSSQL
-            'type'=>\CK\Database\DBA::DBA_MYSQL,
-            //表前缀
-            'db_prefix'=>'',
-            'master' => [
-                'db_host'=>'localhost',
-                'db_name'=>'zc_center',
-                'db_user'=>'db_user',
-                'db_pass'=>'pOe93jfn7hU!7318fVghB',
-                //可选
-                'db_port'=>3306,
-                'db_charset'=>'utf8mb4'
-            ],
-            'slave'=>[]
-        ],
+        ]
     ],
     //浏览器 COOKIE 配置
     'cookie'=>[
