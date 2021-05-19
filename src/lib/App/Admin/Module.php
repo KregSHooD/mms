@@ -23,6 +23,7 @@ class Module extends \CK\Core\Module{
 
 
     public function run() {
+        echo 111;die;
         $this->namespace = CK_TOP_NS.'\\Admin\\Controller';
         if (CK_DEBUG) {
             header('Access-Control-Allow-Origin:http://localhost:3000');
