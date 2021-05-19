@@ -9,6 +9,7 @@
 namespace App\Cms\Controller;
 
 
+use App\Cms\Model\Article;
 use App\Cms\Model\ArticleCategory;
 use App\Cms\Model\Tag;
 use App\Cms\Model\Template;
