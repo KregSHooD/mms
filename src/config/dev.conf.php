@@ -17,12 +17,12 @@ return [
     //组件配置项
     'component'=>[
         'Common\Component\Upload'=>[
-            'access_key_id'=>'LTAIYYdCYXJLSQr2',
-            'access_key_secret'=>'gt8iMQtBKahFgbAVJUMD1ivQQUqG0r',
-            'domain'=>'http://oss.weiwubao.com',
+            'access_key_id'=>'LTAIGrtob8FBPsO',
+            'access_key_secret'=>'KGxcYR4xdrMVAw24kEwdJ44ykTrBUQ',
+            'domain'=>'http://static.zcxf.com',
             'is_custom'=>true,
-            'bucket'=>'weiwubao',
-            'dir_path'=>'upload/image/ticket/'
+            'bucket'=>'zcxf',
+            'dir_path'=>'cms/image/'
         ],
         'CK\Api\Weixin'=>[
             'appid'=>'wx51fb19688ec0020b',
@@ -54,7 +54,7 @@ return [
             //表前缀
             'db_prefix'=>'',
             'master' => [
-                'db_host'=>'168.168.1.10',
+                'db_host'=>'localhost',
                 'db_name'=>'zc_cms',
                 'db_user'=>'db_user',
                 'db_pass'=>'pOe93jfn7hU!7318fVghB',

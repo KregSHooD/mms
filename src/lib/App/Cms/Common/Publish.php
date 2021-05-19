@@ -16,6 +16,12 @@ use CK\Template\Template;
 use CK\Util\Arr;
 use CK\Util\IO\File;
 
+/**
+ * 发布功能库
+ * Class Publish
+ *
+ * @package App\Cms\Common
+ */
 class Publish extends Component {
     private $_ns;
 

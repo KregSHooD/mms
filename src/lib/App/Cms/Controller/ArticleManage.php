@@ -27,12 +27,11 @@ class ArticleManage extends Controller {
 	 * @param $query
 	 * @param $page
 	 * @param $num
-	 * @param $area
 	 * @res true
 	 *
 	 * @return array
 	 */
-	public function query($query, $page, $num, $area) {
+	public function query($query, $page, $num) {
 		$fields = [
 			'art_id' => '',
 			'art_title' => '',
@@ -41,7 +40,7 @@ class ArticleManage extends Controller {
 			'art_created_date' => '',
 		];
 
-		$where = ['art_area' => $area, 'is_del' => 0];
+		$where = [];
 		foreach ($query as $result) {
 			if (!empty($result['value'])) {
 				$column = $result['name'] . "[{$result['type']}]";
