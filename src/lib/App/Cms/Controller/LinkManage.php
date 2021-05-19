@@ -89,7 +89,7 @@ class LinkManage extends Controller {
             }
         }
         $result = LinkCategory::inst()->query($fields, $where, null, null, $num, $page, function ($row) {
-            $row['cipher_id'] = Cipher::inst()->encrypt($row['link_id']);
+            $row['cipher_id'] = Cipher::inst()->encrypt($row['ctg_id']);
             return $row;
         });
         return $result;
@@ -194,9 +194,7 @@ class LinkManage extends Controller {
         $ctg_id = Cipher::inst()->decrypt($cipher_id);
         if (!empty($ctg_id)) {
             $rel = LinkCategory::inst()->delete(['ctg_id' => $ctg_id]);
-            return [
-                'error' => 0,
-            ];
+            return $rel;
         }
         return false;
     }
