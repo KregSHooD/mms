@@ -2,8 +2,8 @@
 /**
  * CK 开发框架
  * User: Clake
- * Date: 2017/2/15
- * Time: 17:43
+ * Date: 2017/2/21
+ * Time: 16:14
  */
 
 namespace App\Cms\Publish;
@@ -11,8 +11,8 @@ namespace App\Cms\Publish;
 
 use CK\Core\Component;
 
-class Index extends Component {
-    public function test($test) {
+class Base extends Component {
+    public function buildPublishLink() {
 
     }
 }
