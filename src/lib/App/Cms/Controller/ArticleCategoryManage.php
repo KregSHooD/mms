@@ -14,7 +14,6 @@ use App\Cms\Model\ArticleCategory;
 use App\Cms\Model\Tag;
 use App\Cms\Model\Template;
 use CK\Core\Controller;
-use CK\Database\DBA;
 use CK\Util\Cipher;
 use CK\Util\Pinyin;
 
