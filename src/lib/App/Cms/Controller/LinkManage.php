@@ -8,7 +8,6 @@ namespace App\Cms\Controller;
  * Time: 17:42
  */
 
-use App\Admin\Model\Article;
 use App\Cms\Model\Link;
 use App\Cms\Model\LinkCategory;
 use CK\Core\Controller;
@@ -194,9 +193,7 @@ class LinkManage extends Controller {
         $ctg_id = Cipher::inst()->decrypt($cipher_id);
         if (!empty($ctg_id)) {
             $rel = LinkCategory::inst()->delete(['ctg_id' => $ctg_id]);
-            return [
-                'error' => 0,
-            ];
+            return $rel;
         }
         return false;
     }

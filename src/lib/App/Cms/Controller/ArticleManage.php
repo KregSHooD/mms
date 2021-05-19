@@ -48,7 +48,7 @@ class ArticleManage extends Controller {
 			}
 		}
 
-		$result = Article::inst()->query($fields, $where, null, null, $num, $page, function ($row) {
+		$result = Article::inst()->query($fields, $where, null, ['art_id', 'DESC'], $num, $page, function ($row) {
 			$row['cipher_id'] = Cipher::inst()->encrypt($row['art_id']);
 			switch ($row['art_type']) {
 				case 1:
