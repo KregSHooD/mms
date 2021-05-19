@@ -14,6 +14,7 @@ use App\Cms\Model\ArticleCategory;
 use App\Cms\Model\Tag;
 use App\Cms\Model\Template;
 use CK\Core\Controller;
+use CK\Database\DBA;
 use CK\Util\Cipher;
 use CK\Util\Pinyin;
 
@@ -136,7 +137,9 @@ class ArticleCategoryManage extends Controller {
             ]);
             //判断该分类下面是否有子分类，如果有则不能删除
             $category = ArticleCategory::inst()->find(['ctg_parent_id' => $ctg_id]);
-            print_r($category);die;
+            var_dump($category);
+            echo DBA::inst()->get_query_string();
+            die;
             if ($article) {
                 return ['error' => 40001];
             } elseif ($category) {
