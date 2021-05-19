@@ -6,7 +6,7 @@
  * Time: 00:49
  */
 
-namespace App\Admin\Model;
+namespace App\Cms\Model;
 
 
 use CK\Core\Model;

@@ -6,10 +6,10 @@
  * Time: 19:57
  */
 
-namespace App\Admin\Controller;
+namespace App\Cms\Controller;
 
 
-use App\Admin\Model\Article;
+use App\Cms\Model\Article;
 use CK\Core\Controller;
 use CK\Util\Cipher;
 use Common\Component\Upload;
@@ -18,7 +18,7 @@ use Common\Component\Upload;
  * 管理端文章管理
  * Class ArticleManage
  * @res true
- * @package App\Admin\Controller
+ * @package App\Cms\Controller
  */
 class ArticleManage extends Controller {
 
